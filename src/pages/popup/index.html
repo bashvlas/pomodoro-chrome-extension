@@ -41,7 +41,7 @@
 						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 120 )" >120</div>
 					</div>
 
-					<input class = "time_input" type = "text" v-model = "session_time" >
+					<input class = "time_input" type = "number" v-model = "session_time" min = "1" max = "1440" >
 
 					<div class = "button" v-on:click = "button_click( 'start_timer' )" >
 						Start Pomodoro Timer
@@ -70,8 +70,7 @@
 					<img src = "/img/logo_red.svg" style = "height: 128px; width: 128px; margin-bottom: 24px;" >
 
 					<div class = "tooltip" style = "flex-grow: 1" >
-						Congratulations! You have finised a deep work session that lasted 40 minutes.
-						That sums up to 1 hour 20 minutes today and 8 hours 30 minutes this week.
+						Congratulations! You have finised a deep work session!
 					</div>
 
 					<div class = "button" v-on:click = "button_click( 'start_again' )" >

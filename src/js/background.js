@@ -13,15 +13,25 @@
 
 				chrome.browserAction.setBadgeText({
 
-					text: Math.floor( ( message.data.end_ts - Date.now() ) / ( 1000 * 60 ) ).toString()
+					text: Math.ceil( ( message.data.end_ts - Date.now() ) / ( 1000 * 60 ) ).toString()
 
 				});
+
+				_state.timeout = setTimeout ( () => {
+
+					chrome.browserAction.setBadgeText({ text: "" });
+					clearInterval( _state.interval );
+					clearTimeout( _state.timeout );
+
+					alert( "Congratulations! You have finised a deep work session! :)" );
+
+				}, message.data.end_ts - message.data.start_ts );
 
 				_state.interval = setInterval( () => {
 
 					chrome.browserAction.setBadgeText({
 
-						text: Math.floor( ( message.data.end_ts - Date.now() ) / ( 1000 * 60 ) ).toString()
+						text: Math.ceil( ( message.data.end_ts - Date.now() ) / ( 1000 * 60 ) ).toString()
 
 					});
 
@@ -31,6 +41,7 @@
 
 				chrome.browserAction.setBadgeText({ text: "" });
 				clearInterval( _state.interval );
+				clearTimeout( _state.timeout );
 
 			};
 
