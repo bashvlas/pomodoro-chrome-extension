@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+	<head>
+
+		<meta charset="utf-8">
+		<title></title>
+
+		<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" >
+		<link rel = "stylesheet" href = "style.css" >
+
+	</head>
+
+	<body>
+
+		<div id = "root" >
+
+			<div id = "header" >
+
+				<span>Pomodoro Chrome Extension</span>
+
+				<div id = "dropshadow" ></div>
+
+			</div>
+
+			<div class = "page_container" >
+
+				<div class = "page select_minutes" v-bind:class = "{ active: active_page_name === 'select_minutes' }" >
+
+					<div class = "tooltip" >Select how many minutes your session will take</div>
+
+					<div class = "button_row" >
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 5 )" >5</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 10 )" >10</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 25 )" >25</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 30 )" >30</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 40 )" >40</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 50 )" >50</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 60 )" >60</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 90 )" >90</div>
+						<div class = "button_row_item" v-on:click = "button_click( 'set_session_time', 120 )" >120</div>
+					</div>
+
+					<input class = "time_input" type = "text" v-model = "session_time" >
+
+					<div class = "button" v-on:click = "button_click( 'start_timer' )" >
+						Start Pomodoro Timer
+					</div>
+
+				</div>
+
+				<div class = "page progress" v-bind:class = "{ active: active_page_name === 'progress' }" >
+
+					<div class = "tooltip" >A deep work session is currently in progress</div>
+
+					<div class = "progress_row" >
+						<div class = "progress_row_bar" v-bind:style = "{ width: percent_done + '%' }" ></div>
+					</div>
+
+					<input class = "time_input" type = "text" disabled v-model = "time_text" >
+
+					<div class = "button secondary" v-on:click = "button_click( 'stop_timer' )" >
+						Stop Pomodoro Timer
+					</div>
+
+				</div>
+
+				<div class = "page finished" v-bind:class = "{ active: active_page_name === 'finished' }" >
+
+					<img src = "/img/logo_red.svg" style = "height: 128px; width: 128px; margin-bottom: 24px;" >
+
+					<div class = "tooltip" style = "flex-grow: 1" >
+						Congratulations! You have finised a deep work session that lasted 40 minutes.
+						That sums up to 1 hour 20 minutes today and 8 hours 30 minutes this week.
+					</div>
+
+					<div class = "button" v-on:click = "button_click( 'start_again' )" >
+						Start Again
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id = "script" hidden >
+
+			<script src = "/lib/vue.min.js" ></script>
+			<script src = "/lib/moment.min.js" ></script>
+
+			<script src = "main.js" ></script>
+
+		</div>
+
+	</body>
+
+</html>

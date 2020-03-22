@@ -1,0 +1,42 @@
+{
+
+	"manifest_version": 2,
+
+	"name": "Pomodoro Chrome Extension",
+	"short_name": "Pomodoro",
+	"version": "1.0.0",
+	"description": "This simple plugin is based on The Pomodoro Technique, which is is a popular time management method.",
+
+	"icons": {
+
+		"128": "/img/logo_red_128.png"
+
+	},
+
+	"browser_action": {
+
+		"default_icon": "/img/logo_red_19.png",
+		"default_popup": "/pages/popup/index.html"
+
+	},
+
+	"background": {
+
+		"persistent": false,
+		"scripts": [
+
+			"/js/background.js"
+
+		]
+
+	},
+
+	"permissions": [
+
+		"storage"
+
+	],
+
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+
+}
