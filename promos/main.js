@@ -59,6 +59,7 @@
 				} else if ( name === "start_timer" ) {
 
 					this.session_time = parseInt( this.session_time );
+					this.session_time = 0.01;
 					this.timer_is_active = true;
 					this.active_page_name = "progress";
 
