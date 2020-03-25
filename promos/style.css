@@ -95,7 +95,7 @@
 		.promo {
 
 			margin-top: 24px;
-			border: 4px solid rgba( 0, 0, 0, 0.5 );
+			/*border: 4px solid rgba( 0, 0, 0, 0.5 );*/
 			box-sizing: content-box;
 
 		}
@@ -107,29 +107,29 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: flex-start;
+				justify-content: center;
 
 				width: 440px;
 				height: 280px;
 
-				background-image: url( /bg.png );
+				background: rgb(198,40,40);
+				background: linear-gradient(135deg, rgba(198,40,40,1) 0%, rgba(142,0,0,1) 100%);
 
 			}
 
 			.small_tile .logo {
 
-				height: 110px;
-				margin-top: 25px;
-				margin-bottom: 25px;
+				height: 120px;
+				margin-bottom: 20px;
 
 			}
 
 			.small_tile .title {
 
-				font-weight: 700;
+				font-weight: 500;
 				font-size: 35px;
 
-				color: #681515;
+				color: white;
 
 				text-align: center;
 
@@ -144,19 +144,19 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: flex-start;
+				justify-content: center;
 
 				width: 920px;
 				height: 680px;
 
-				background-image: url( /bg.png );
+				background: rgb(198,40,40);
+				background: linear-gradient(135deg, rgba(198,40,40,1) 0%, rgba(142,0,0,1) 100%);
 
 			}
 
 			.large_tile .logo {
 
 				height: 240px;
-				margin-top: 50px;
 				margin-bottom: 50px;
 
 			}
@@ -165,23 +165,10 @@
 
 				margin-bottom: 50px;
 
-				font-weight: 700;
+				font-weight: 500;
 				font-size: 50px;
 
-				color: #681515;
-
-				text-align: center;
-
-			}
-
-			.large_tile .description {
-
-				width: 656px;
-
-				font-weight: 700;
-				font-size: 40px;
-
-				color: #681515;
+				color: white;
 
 				text-align: center;
 
@@ -196,20 +183,20 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: flex-start;
+				justify-content: center;
 
 				width: 1400px;
 				height: 560px;
 
-				background-image: url( /bg.png );
+				background: rgb(198,40,40);
+				background: linear-gradient(135deg, rgba(198,40,40,1) 0%, rgba(142,0,0,1) 100%);
 
 			}
 
 			.marquee_tile .logo {
 
-				height: 240px;
-				margin-top: 40px;
-				margin-bottom: 40px;
+				height: 280px;
+				margin-bottom: 60px;
 
 			}
 
@@ -217,23 +204,10 @@
 
 				margin-bottom: 40px;
 
-				font-weight: 700;
-				font-size: 50px;
+				font-weight: 500;
+				font-size: 60px;
 
-				color: #681515;
-
-				text-align: center;
-
-			}
-
-			.marquee_tile .description {
-
-				width: 1200px;
-
-				font-weight: 700;
-				font-size: 40px;
-
-				color: #681515;
+				color: white;
 
 				text-align: center;
 
