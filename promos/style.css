@@ -113,7 +113,7 @@
 				height: 280px;
 
 				background: rgb(198,40,40);
-				background: linear-gradient(135deg, rgba(198,40,40,1) 0%, rgba(142,0,0,1) 100%);
+				background: linear-gradient(170deg, #8a0d12 0%, #020106 100%);
 
 			}
 
@@ -127,7 +127,7 @@
 			.small_tile .title {
 
 				font-weight: 500;
-				font-size: 35px;
+				font-size: 40px;
 
 				color: white;
 
@@ -237,9 +237,11 @@
 				margin-bottom: 40px;
 
 				font-weight: 700;
-				font-size: 50px;
+				font-size: 40px;
 
-				color: #681515;
+				filter: drop-shadow(2px 4px 6px black);
+
+				color: white;
 
 				text-align: center;
 
@@ -247,8 +249,7 @@
 
 			.screenshot img {
 
-				width: 610px;
-				height: 610px;
+				display: block;
 				border-radius: 4px;
 				box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
