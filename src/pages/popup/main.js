@@ -17,6 +17,16 @@
 
 		methods: {
 
+			wait: function ( time ) {
+
+				return new Promise( function ( resolve ) {
+
+					setTimeout( resolve, time );
+
+				});
+
+			},
+
 			set_interval: function () {
 
 				this.interval = setInterval( () => {
@@ -103,9 +113,106 @@
 
 					});
 
+				} else if ( name === "menu_button" ) {
+
+					this.open_drawer();
+
+				} else if ( name === "close" ) {
+
+					window.close();
+
 				};
 
 			},
+
+			// drawer methods
+
+				open_drawer: async function () {
+
+					document.querySelector( "#drawer_overlay" ).style.display = "block";
+
+					await this.wait( 10 );
+
+					document.querySelector( "#drawer_overlay" ).classList.add( "opened" );
+
+				},
+
+				close_drawer: async function () {
+
+					document.querySelector( "#drawer_overlay" ).classList.remove( "opened" );
+
+					await this.wait( 200 );
+
+					document.querySelector( "#drawer_overlay" ).style.display = "none";
+
+				},
+
+				drawer_overlay_click: function () {
+
+					this.close_drawer();
+
+				},
+
+				drawer_click: function ( event ) {
+
+					event.stopPropagation();
+
+				},
+
+				drawer_item_click: function ( item_name ) {
+
+					if ( item_name === "log_out" ) {
+
+						firebase.auth().signOut().then(() => {
+
+							this.auth_model = {};
+
+							this.app_info.nav_info.page_name = "my_account";
+
+							this.app_info.auth_data.user_is_logged_in = false;
+							this.app_info.auth_data.user_is_upgraded = false;
+
+							this.emit( "sync_data", { auth_data: this.app_info.auth_data } );
+
+							this.update_model();
+
+						}, function ( error ) {} );
+
+					} else if ( item_name === "how_to_use_it" ) {
+
+						chrome.tabs.create({
+
+							url: "https://youtu.be/UWE6Q_3z-UM",
+							active: true,
+
+						});
+
+					};
+
+					this.emit( "drawer_item_click", { item_name });
+
+					if ( item_name === "license" ) {
+
+						this.app_info.nav_info.page_name = "license";
+
+					} else if ( item_name === "main_page" ) {
+
+						this.app_info.nav_info.page_name = "main";
+
+					} else if ( item_name === "settings" ) {
+
+						this.app_info.nav_info.page_name = "settings";
+
+					} else if ( item_name === "my_account" ) {
+
+						this.app_info.nav_info.page_name = "my_account";
+
+					};
+
+					this.close_drawer();
+					this.update_model();
+
+				},
 
 		},
 

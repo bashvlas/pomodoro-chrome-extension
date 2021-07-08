@@ -23,7 +23,7 @@
 					clearInterval( _state.interval );
 					clearTimeout( _state.timeout );
 
-					alert( "Congratulations! You have finised a deep work session! :)" );
+					alert( "Congratulations! You have finised a pomodoro session! :)" );
 
 				}, message.data.end_ts - message.data.start_ts );
 

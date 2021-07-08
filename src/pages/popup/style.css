@@ -32,6 +32,7 @@
 
 		#header {
 
+			user-select: none;
 			position: relative;
 
 			display: flex;
@@ -46,6 +47,34 @@
 			color: white;
 			font-size: 16px;
 			font-weight: 500;
+
+		}
+
+		#header .icon {
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 32px;
+			height: 32px;
+			cursor: pointer;
+
+		}
+
+		#header .icon svg {
+
+			height: 24px;
+			width: 24px;
+			fill: rgba( 255, 255, 255, 1 );
+			transition: all 0.2s ease;
+
+		}
+
+		#header .icon:hover svg {
+
+			height: 24px;
+			width: 24px;
+			fill: rgba( 255, 255, 255, 0.8 );
 
 		}
 
@@ -378,67 +407,6 @@
 
 	/**/
 
-	/* chrome_toggle */
-
-		.chrome_toggle {
-
-			position: relative;
-
-			height: 16px;
-			width: 34px;
-
-		}
-
-		.chrome_toggle-bar {
-
-			position: absolute;
-
-			top: 2px;
-			left: 3px;
-			height: 12px;
-			width: 28px;
-
-			border-radius: 8px;
-			background-color:rgb(189, 193, 198);
-
-			transition: all 80ms linear;
-
-		}
-
-		.chrome_toggle-knob {
-
-			position: absolute;
-
-			top: 0px;
-			left: 0px;
-			height: 16px;
-			width: 16px;
-
-			border-radius: 50%;
-			background-color: white;
-			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-
-			transition: all 80ms linear;
-
-		}
-
-		.chrome_toggle.active .chrome_toggle-bar {
-
-			background-color: rgb(26, 115, 232);
-			opacity: 0.5;
-
-		}
-
-		.chrome_toggle.active .chrome_toggle-knob {
-
-			left: auto;
-			right: 0px;
-			background-color: rgb(26, 115, 232);
-
-		}
-
-	/**/
-
 	/* progress page */
 
 		.progress_page.active {
@@ -700,5 +668,108 @@
 			cursor: pointer;
 
 		}
+
+	/**/
+
+	/* drawer */
+
+		/* general */
+
+			#drawer_overlay {
+				position: absolute;
+				display: none;
+				z-index: 3000;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0);
+				transition: all 0.2s ease;
+			}
+
+			#drawer {
+				position: absolute;
+				top: 0px;
+				left: -257px;
+				width: 257px;
+				height: 100%;
+				background-color: #ffffff;
+				transition: all 0.2s ease;
+			}
+
+			#drawer_overlay.opened {
+				background-color: rgba(0, 0, 0, 0.6);
+			}
+
+			#drawer_overlay.opened #drawer {
+				left: 0px;
+			}
+
+		/**/
+
+		/* content */
+
+			#drawer_header {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				box-sizing: border-box;
+				height: 56px;
+				padding-left: 24px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+				font-size: 16px;
+			}
+
+			.drawer_item_container {
+				margin-top: 8px;
+			}
+
+			.drawer_item {
+				box-sizing: content-box;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				height: 20px;
+				padding: 10px 0px 10px 24px;
+				cursor: pointer;
+			}
+
+			.drawer_item.hidden {
+				display: none;
+			}
+
+			img.drawer_item_icon {
+				width: 20px;
+				height: 20px;
+				margin-right: 24px;
+			}
+
+			.drawer_item svg {
+				width: 20px;
+				height: 20px;
+				margin-right: 12px;
+			}
+
+			.drawer_item path {
+				fill: rgb(90, 90, 90);
+				transition: all 0.2s ease;
+			}
+
+			.drawer_item span {
+				font-size: 13px;
+				font-weight: 600;
+				color: rgb(90, 90, 90);
+				transition: all 0.2s ease;
+			}
+
+			.drawer_item:hover path {
+				fill: rgb(0, 0, 0);
+			}
+
+			.drawer_item:hover span {
+				color: rgb(0, 0, 0);
+			}
+
+		/**/
 
 	/**/
